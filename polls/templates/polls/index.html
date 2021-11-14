@@ -1,12 +1,28 @@
-{% if latest_question_list %}
-<h1>LOVE STORY!</h1>
-<h2>You enter to the sacrament meeting of your ward, and see your crush setting by herself. What do you do?</h2>
-<ul>
-    {% for question in latest_question_list %}
-    <li><a href="/{{ question.id }}/">{{ question.question_text }}</a></li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No polls are available.</p>
-{% endif %}
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Love Story!</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<header>
+    {% if latest_question_list %}
+    <h1>LOVE STORY!</h1>
+</header>
+<body>
+    <div id="content">
+        <main>
+            <h2>You enter to the sacrament meeting of your ward, and see your crush setting by herself. What do you do?</h2>
+            <ul>
+                {% for question in latest_question_list %}
+                <li><a href="/{{ question.id }}/">{{ question.question_text }}</a></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No polls are available.</p>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>
